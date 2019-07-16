@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cps-cy-MFD">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="9sJ-V3-1J3">
+            <objects>
+                <navigationController id="cps-cy-MFD" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aij-6U-W4F">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="kYl-bo-RU5" kind="relationship" relationship="rootViewController" id="UNf-3H-YX4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mE6-IO-ggm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1672" y="-317"/>
+        </scene>
+        <!--Simpsons Tab Bar Controller-->
+        <scene sceneID="3k3-Xf-IAf">
+            <objects>
+                <tabBarController id="kYl-bo-RU5" customClass="SimpsonsTabBarController" customModule="SimpsonsViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Jgo-bV-cOg"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Nq8-Ob-zhW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HzI-c2-5qB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-930" y="-317"/>
+        </scene>
+        <!--Simpsons Detail View Controller-->
+        <scene sceneID="ovG-Lq-TD2">
+            <objects>
+                <viewController storyboardIdentifier="SimpsonsDetailViewController" id="wJ1-51-Vzj" customClass="SimpsonsDetailViewController" customModule="SimpsonsViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VgA-ZC-b4o">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oeH-e5-DE0">
+                                <rect key="frame" x="70" y="64" width="274" height="274"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="oeH-e5-DE0" secondAttribute="height" multiplier="1:1" id="0Ol-be-8G5"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I will not replace a candy heart with a frog's heart" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.01" translatesAutoresizingMaskIntoConstraints="NO" id="aNU-2V-2ft">
+                                <rect key="frame" x="20" y="402" width="374" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Le Simpson" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jSz-Ge-QEC">
+                                <rect key="frame" x="20" y="358" width="374" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="aNU-2V-2ft" firstAttribute="top" secondItem="jSz-Ge-QEC" secondAttribute="bottom" constant="20" id="9NW-7V-FSx"/>
+                            <constraint firstItem="oeH-e5-DE0" firstAttribute="top" secondItem="6Tm-r1-YYF" secondAttribute="top" constant="20" id="AMh-dJ-O5A"/>
+                            <constraint firstItem="6Tm-r1-YYF" firstAttribute="trailing" secondItem="jSz-Ge-QEC" secondAttribute="trailing" constant="20" id="Hat-3h-1j1"/>
+                            <constraint firstItem="jSz-Ge-QEC" firstAttribute="leading" secondItem="6Tm-r1-YYF" secondAttribute="leading" constant="20" id="Hwr-2p-i2t"/>
+                            <constraint firstItem="aNU-2V-2ft" firstAttribute="leading" secondItem="jSz-Ge-QEC" secondAttribute="leading" id="K0e-v6-AAP"/>
+                            <constraint firstItem="jSz-Ge-QEC" firstAttribute="top" secondItem="oeH-e5-DE0" secondAttribute="bottom" constant="20" id="PU7-pT-so3"/>
+                            <constraint firstItem="aNU-2V-2ft" firstAttribute="trailing" secondItem="jSz-Ge-QEC" secondAttribute="trailing" id="b8O-Iv-NmI"/>
+                            <constraint firstItem="6Tm-r1-YYF" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="aNU-2V-2ft" secondAttribute="bottom" constant="20" id="cHh-Tq-9u4"/>
+                            <constraint firstItem="6Tm-r1-YYF" firstAttribute="trailing" secondItem="oeH-e5-DE0" secondAttribute="trailing" constant="70" id="oXH-KT-uJB"/>
+                            <constraint firstItem="oeH-e5-DE0" firstAttribute="leading" secondItem="6Tm-r1-YYF" secondAttribute="leading" constant="70" id="ttc-pE-W6x"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tm-r1-YYF"/>
+                    </view>
+                    <connections>
+                        <outlet property="descLabel" destination="aNU-2V-2ft" id="pmM-IY-U7Y"/>
+                        <outlet property="imageView" destination="oeH-e5-DE0" id="rjE-VH-j3y"/>
+                        <outlet property="nameLabel" destination="jSz-Ge-QEC" id="PQe-2C-Rlk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4By-s3-piR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-166.66666666666669" y="-317.41071428571428"/>
+        </scene>
+    </scenes>
+</document>
