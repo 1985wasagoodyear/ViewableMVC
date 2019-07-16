@@ -20,9 +20,12 @@ extension String {
     }
 }
 
+private let fileManager = FileManager.default
+
 class ImageCache {
-    static private let baseURL = FileManager.default.urls(for: .cachesDirectory,
-                                                  in: .userDomainMask).first!
+    static private let baseDirectory = fileManager.urls(for: .cachesDirectory,
+                                                        in: .userDomainMask)
+    static private let baseURL = baseDirectory.first!
     
     private var inMemoryCache = NSCache<NSString, NSData>()
     private let setting: ViewableCacheSetting
@@ -44,8 +47,9 @@ class ImageCache {
                 let data = try Data(contentsOf: url)
                 return data
             }
-            catch {
-                print("error: \(error)")
+            catch let err as NSError {
+                let isError = (err.code == 260 || err.code == 4)
+                print(isError ? "File not found" : "Error reading image: \(err)")
             }
         }
         return nil
@@ -59,8 +63,19 @@ class ImageCache {
                 try imageData.write(to: url)
             }
             catch {
-                print("Error saving image")
+                print("Error saving image: \(error)")
             }
         }
+    }
+    
+    class func deleteAllFiles() {
+        let files = try? fileManager.contentsOfDirectory(at: baseURL,
+                                                         includingPropertiesForKeys: nil,
+                                                         options: .skipsPackageDescendants)
+        for file in (files ?? []) {
+            print(file)
+            try? fileManager.removeItem(at: file)
+        }
+        
     }
 }

@@ -15,13 +15,7 @@ public protocol ListNavigationHandler {
 public class ListController<T: Viewable> {
     
     let url: URL
-    var settings: ViewableSettings {
-        didSet {
-            if settings.cacheImages != .never {
-                imageCache = ImageCache(settings.cacheImages)
-            }
-        }
-    }
+    var settings: ViewableSettings
     let navigationHandler: ListNavigationHandler
     
     private var service = NetworkService()
@@ -35,6 +29,9 @@ public class ListController<T: Viewable> {
         self.url = url
         self.settings = settings
         self.navigationHandler = navigationHandler
+        if settings.cacheImages != .never {
+            imageCache = ImageCache(settings.cacheImages)
+        }
     }
     
     var count: Int {
