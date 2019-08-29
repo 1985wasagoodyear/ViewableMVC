@@ -45,6 +45,7 @@ class ImageCache {
             let url = ImageCache.baseURL.appendingPathComponent(name)
             do {
                 let data = try Data(contentsOf: url)
+                inMemoryCache.setObject(data.ns, forKey: name.ns)
                 return data
             }
             catch let err as NSError {
